@@ -8,6 +8,9 @@ import cors from 'cors';
 import morgan from 'morgan';
 import { config } from 'dotenv';
 
+import db from './config/db';
+import Router from './modules/router/index';
+
 config();
 
 const port = process.env.PORT || 3000;
@@ -36,6 +39,10 @@ app.get('/', (req, res) => {
 });
 
 try {
+  db();
+
+  app.use('/api/v1', Router);
+
   http.createServer(app).listen(port, () => {
     const msg = `up and running in ${
       process.env.NODE_ENV || 'development'
@@ -45,3 +52,5 @@ try {
 } catch (err) {
   console.log(err);
 }
+
+export { app };

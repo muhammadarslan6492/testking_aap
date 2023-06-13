@@ -2,11 +2,9 @@ import mongoose from 'mongoose';
 
 const connect = async () => {
   try {
-    await mongoose.connect('mongodb://localhost/mydatabase', {
+    await mongoose.connect(process.env.DB, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
-      useCreateIndex: true,
-      useFindAndModify: false,
     });
     console.log('Connected to the database!');
   } catch (err) {
