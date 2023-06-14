@@ -8,7 +8,7 @@
     "start": "node ./build/index.js",
     "dev": "nodemon --exec npx babel-node server/index.js",
     "lint": "eslint .",
-    "test": "jest"
+    "test": "jest --detectOpenHandles"
   },
   "author": "",
   "license": "ISC",
