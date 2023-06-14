@@ -13,6 +13,10 @@ const employeeSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  reportsTo: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+  },
 });
 
 const Employee = mongoose.model('Employee', employeeSchema);

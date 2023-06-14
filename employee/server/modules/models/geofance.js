@@ -24,3 +24,5 @@ const geofenceSchema = new mongoose.Schema({
 });
 
 const Geofence = mongoose.model('Geofence', geofenceSchema);
+
+export default Geofence;
